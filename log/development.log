@@ -876,3 +876,20 @@ DEPRECATION WARNING: `#timestamp` was called without specifying an option for `n
   [1m[35m (16.3ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+
+
+Started GET "/" for 165.91.12.92 at 2018-03-18 23:22:26 +0000
+
+
+Started GET "/movies" for 165.91.12.92 at 2018-03-18 23:22:27 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://ruby606-yixiao.c9users.io/movies?ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=release_date
+Completed 302 Found in 45ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=release_date" for 165.91.12.92 at 2018-03-18 23:22:27 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"release_date"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."release_date" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (35.6ms)
+Completed 200 OK in 598ms (Views: 587.4ms | ActiveRecord: 4.1ms)
